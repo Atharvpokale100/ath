@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/includeNavbar.js" defer></script>
+    <script src="js/includeFooter.js" defer></script>
+</head>
+
+<body>
+    <div id="navbar"></div>
+
+    <main id="main">
+        <section class="section gallery-hero">
+            <div class="container">
+                <h1 class="section-title">Gallery</h1>
+            </div>
+        </section>
+
+
+        </section>
+        <div class="custom-heading" id="residential-design">
+            <h1>RESIDENTIAL DESIGN</h1>
+        </div>
+        <div class="auto-slider rtl-slider">
+            <div class="slider-track rtl-track">
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+            </div>
+        </div>
+
+        <style>
+            .gallery-hero {
+                background: #F5E7C6;
+            }
+
+            .gallery-hero .container {
+                padding: 3rem 0;
+            }
+
+            .gallery-hero .section-title {
+                text-align: center;
+                font-family: "Times New Roman", Times, serif;
+                font-weight: bold;
+                font-size: clamp(2.6rem, 8vw, 4rem);
+                color: #000000;
+                letter-spacing: 0.04em;
+            }
+
+            .auto-slider {
+                width: 100%;
+                overflow: hidden;
+                background: #d0cccc;
+                padding: 20px 0;
+                margin: 32px 0;
+            }
+
+            .rtl-track {
+                display: flex;
+                align-items: center;
+                width: calc((420px + 24px) * 10);
+                animation: scroll-rtl 18s linear infinite;
+            }
+
+            .auto-slider .rtl-track img {
+                width: 420px;
+                height: 270px;
+                object-fit: cover;
+                margin-right: 24px;
+                border-radius: 12px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            }
+
+            @keyframes scroll-rtl {
+                0% {
+                    transform: translateX(0);
+                }
+
+                100% {
+                    transform: translateX(-50%);
+                }
+            }
+
+            .custom-heading {
+                text-align: center;
+                font-size: 3rem;
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+                padding: 1rem;
+                margin: 2rem 0;
+            }
+
+            /* Tablet */
+            @media (max-width: 900px) {
+                .gallery-hero .container {
+                    padding: 2rem 0;
+                }
+
+                .gallery-hero .section-title {
+                    font-size: clamp(2rem, 7vw, 3rem);
+                }
+
+                .auto-slider {
+                    padding: 16px 0;
+                    margin: 24px 0;
+                }
+
+                .rtl-track {
+                    width: calc((320px + 20px) * 10);
+                }
+
+                .auto-slider .rtl-track img {
+                    width: 320px;
+                    height: 210px;
+                    margin-right: 20px;
+                }
+
+                .custom-heading {
+                    font-size: 2rem;
+                    padding: 0.75rem;
+                }
+            }
+
+            /* Mobile */
+            @media (max-width: 600px) {
+                .gallery-hero .container {
+                    padding: 1.5rem 0;
+                }
+
+                .gallery-hero .section-title {
+                    font-size: clamp(1.6rem, 8.5vw, 2.2rem);
+                }
+
+                .auto-slider {
+                    padding: 12px 0;
+                    margin: 18px 0;
+                }
+
+                .rtl-track {
+                    width: calc((280px + 16px) * 10);
+                }
+
+                .auto-slider .rtl-track img {
+                    width: 280px;
+                    height: 190px;
+                    margin-right: 16px;
+                }
+
+                .custom-heading {
+                    font-size: 1.5rem;
+                    padding: 0.6rem;
+                }
+            }
+        </style>
+
+        <div class="custom-heading" id="2d-floor-plan">
+            <h1>2D FLOOR PLAN</h1>
+        </div>
+
+        <div class="auto-slider rtl-slider">
+            <div class="slider-track rtl-track">
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div class="custom-heading" id="3d-elevation">
+            <h1>3D ELEVATION</h1>
+        </div>
+
+        <div class="auto-slider rtl-slider">
+            <div class="slider-track rtl-track">
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+            </div>
+        </div>
+
+
+        <div class="custom-heading" id="interior">
+            <h1>INTERIOR</h1>
+        </div>
+
+        <div class="auto-slider rtl-slider">
+            <div class="slider-track rtl-track">
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+            </div>
+        </div>
+
+        <div class="custom-heading" id="office-decoration">
+            <h1>OFFICE DECORATION</h1>
+        </div>
+
+        <div class="auto-slider rtl-slider">
+            <div class="slider-track rtl-track">
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+            </div>
+        </div>
+
+        <div class="custom-heading" id="building-renovation">
+            <h1>BUILDING RENOVATION</h1>
+        </div>
+
+        <div class="auto-slider rtl-slider">
+            <div class="slider-track rtl-track">
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+            </div>
+        </div>
+
+        <div class="custom-heading" id="bathroom-remodeling">
+            <h1>BATHROOM REMODELING</h1>
+        </div>
+
+        <div class="auto-slider rtl-slider">
+            <div class="slider-track rtl-track">
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+            </div>
+        </div>
+
+        <div class="custom-heading" id="flooring-tiling">
+            <h1>FLOORING & TILING</h1>
+        </div>
+
+
+        <div class="auto-slider rtl-slider">
+            <div class="slider-track rtl-track">
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+            </div>
+        </div>
+
+
+        <div class="custom-heading" id="false-ceiling">
+            <h1>FALSE CEILING</h1>
+        </div>
+
+
+
+        <div class="auto-slider rtl-slider">
+            <div class="slider-track rtl-track">
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+                <img src="images/F4.jpg" alt="" />
+                <img src="images/F3.jpg" alt="" />
+            </div>
+        </div>
+
+
+
+    </main>
+
+    <div id="footer"></div>
+</body>
+
+</html>

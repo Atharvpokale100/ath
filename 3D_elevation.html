@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D Elevations</title>
+  <link href="css/styles.css" rel="stylesheet" />
+  <script src="js/includeNavbar.js" defer></script>
+  <script src="js/script.js" defer></script>
+  <script src="js/includeFooter.js" defer></script>
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">3D ELEVATIONS</p>
+          <style>
+            .eyebrow {
+              font-size: 22px;
+            }
+          </style>
+          <h2 class="section-title">Examples</h2>
+          <p class="section-subtitle">
+            Photoreal visuals that communicate materials, lighting and mood.
+            Align stakeholders and refine decisions before a single brick is laid.
+          </p>
+          <p class="eyebrow">See it before it’s built.</p>
+        </div>
+
+        <div class="slider" id="elevation-slider">
+          <div class="slider-viewport">
+            <div class="slider-track">
+              <div class="slide"><img src="assets/project-1.jpg" alt="Elevation 1" /></div>
+              <div class="slide"><img src="assets/project-2.jpg" alt="Elevation 2" /></div>
+              <div class="slide"><img src="assets/project-3.jpg" alt="Elevation 3" /></div>
+              <div class="slide"><img src="assets/hero-main.jpg" alt="Elevation 4" /></div>
+              <div class="slide"><img src="images/F4.jpg" alt="Elevation 5" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="floor-cards">
+          <article class="floor-card"><div class="floor-card-media"><img src="assets/project-1.jpg" alt="Elevation A" /></div><div class="floor-card-info"><span class="size">1400sq</span><span class="price">₹ 12,999</span></div></article>
+          <article class="floor-card"><div class="floor-card-media"><img src="assets/project-2.jpg" alt="Elevation B" /></div><div class="floor-card-info"><span class="size">1400sq</span><span class="price">₹ 12,999</span></div></article>
+          <article class="floor-card"><div class="floor-card-media"><img src="assets/project-3.jpg" alt="Elevation C" /></div><div class="floor-card-info"><span class="size">1400sq</span><span class="price">₹ 12,999</span></div></article>
+          <article class="floor-card"><div class="floor-card-media"><img src="images/F4.jpg" alt="Elevation D" /></div><div class="floor-card-info"><span class="size">1400sq</span><span class="price">₹ 12,999</span></div></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script>
+    (function(){
+      const track = document.querySelector('#elevation-slider .slider-track');
+      const slides = Array.from(track.children);
+      let index = 0;
+      function update(){
+        const width = track.parentElement.offsetWidth;
+        track.style.transform = `translateX(${-index * width}px)`;
+      }
+      function next(){
+        index = (index + 1) % slides.length;
+        update();
+      }
+      window.addEventListener('resize', update);
+      update();
+      setInterval(next, 3000);
+    })();
+  </script>
+</body>
+</html>

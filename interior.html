@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interior Designs</title>
+  <link href="css/styles.css" rel="stylesheet" />
+  <script src="js/includeNavbar.js" defer></script>
+  <script src="js/script.js" defer></script>
+  <script src="js/includeFooter.js" defer></script>
+</head>
+
+<body>
+  <div id="navbar"></div>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">INTERIOR DESIGNS</p>
+          <style>
+            .eyebrow {
+              font-size: 22px;
+            }
+          </style>
+          <h2 class="section-title">Examples</h2>
+          <p class="section-subtitle">Balanced spaces, material harmony, and practical elegance tailored to your
+            lifestyle.</p>
+          <p class="eyebrow">Design that feels like home.</p>
+        </div>
+
+        <div class="slider" id="interior-slider">
+          <div class="slider-viewport">
+            <div class="slider-track">
+              <div class="slide"><img src="assets/project-1.jpg" alt="Interior 1" /></div>
+              <div class="slide"><img src="assets/project-2.jpg" alt="Interior 2" /></div>
+              <div class="slide"><img src="assets/project-3.jpg" alt="Interior 3" /></div>
+              <div class="slide"><img src="images/F3.jpg" alt="Interior 4" /></div>
+              <div class="slide"><img src="images/F4.jpg" alt="Interior 5" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="floor-cards">
+          <article class="floor-card"><img src="assets/project-1.jpg" alt="Interior A" /></article>
+          <article class="floor-card"><img src="assets/project-2.jpg" alt="Interior B" /></article>
+          <article class="floor-card"><img src="assets/project-3.jpg" alt="Interior C" /></article>
+          <article class="floor-card"><img src="images/F3.jpg" alt="Interior D" /></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script>
+    (function () {
+      const track = document.querySelector('#interior-slider .slider-track');
+      const slides = Array.from(track.children);
+      let index = 0;
+      function update() {
+        const width = track.parentElement.offsetWidth;
+        track.style.transform = `translateX(${-index * width}px)`;
+      }
+      function next() {
+        index = (index + 1) % slides.length;
+        update();
+      }
+      window.addEventListener('resize', update);
+      update();
+      setInterval(next, 3000);
+    })();
+  </script>
+</body>
+
+</html>

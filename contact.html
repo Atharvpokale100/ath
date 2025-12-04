@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact</title>
+  <link href="css/styles.css" rel="stylesheet" />
+  <script src="js/includeNavbar.js" defer></script>
+  <script src="js/includeFooter.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">CONTACT</p>
+          <style>
+            .eyebrow {
+              font-size: 22px;
+            }
+          </style>
+          <h2 class="section-title">Send a message. Visit the studio.</h2>
+          <p class="section-subtitle">Share project details and location. We respond within 24 hours.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <form class="contact-form" id="contactForm" data-emailjs-public="YOUR_PUBLIC_KEY" data-emailjs-service="YOUR_SERVICE_ID" data-emailjs-template="YOUR_TEMPLATE_ID" data-owner-email="atharvpokale10@gmail.com">
+              <div class="form-field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-field">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" />
+              </div>
+              <div class="form-field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn-primary">Send Message</button>
+              <p class="form-note" id="formNote" role="status" aria-live="polite" tabindex="-1" hidden>Message sent. We will reach out soon.</p>
+            </form>
+          </div>
+
+          <div class="contact-side">
+            <div class="info-block">
+              <h3>Office</h3>
+              <p class="info-text">Gadge Engineer and Contractor<br/>Pune, Maharashtra, India<br/>+91-12345-67890<br/>hello@studioname.com</p>
+            </div>
+            <div class="map-card">
+              <iframe
+                title="Office Location"
+                src="https://www.google.com/maps?q=Pune,+India&output=embed"
+                width="100%"
+                height="350"
+                style="border:0;"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script>
+    (function(){
+      var form = document.getElementById('contactForm');
+      var note = document.getElementById('formNote');
+      if (!form) return;
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        var name = document.getElementById('name').value.trim();
+        var email = document.getElementById('email').value.trim();
+        var phone = document.getElementById('phone').value.trim();
+        var message = document.getElementById('message').value.trim();
+
+        var pub = form.getAttribute('data-emailjs-public');
+        var service = form.getAttribute('data-emailjs-service');
+        var template = form.getAttribute('data-emailjs-template');
+        var owner = (form.getAttribute('data-owner-email') || 'atharvpokale10@gmail.com').trim();
+
+        var isConfigured = pub && service && template && !/YOUR_/i.test(pub) && !/YOUR_/i.test(service) && !/YOUR_/i.test(template);
+
+        var show = function(txt){
+          note.textContent = txt;
+          note.hidden = false;
+          try { note.focus(); } catch(err) {}
+        };
+
+        // Try EmailJS first (sends to your Gmail or chosen inbox)
+        if (window.emailjs && isConfigured) {
+          try { window.emailjs.init(pub); } catch(err) {}
+          window.emailjs.send(service, template, {
+            to_email: owner,
+            name: name,
+            email: email,
+            phone: phone,
+            message: message
+          }).then(function(){
+            show('Message sent successfully. We will reach out soon.');
+            form.reset();
+          }).catch(function(err){
+            var subject = encodeURIComponent('New enquiry from website');
+            var body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\n\nMessage:\n' + message);
+            window.location.href = 'mailto:' + owner + '?subject=' + subject + '&body=' + body;
+            show('Opening your mail app as a fallback…');
+          });
+        } else {
+          var subject = encodeURIComponent('New enquiry from website');
+          var body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\n\nMessage:\n' + message);
+          window.location.href = 'mailto:' + owner + '?subject=' + subject + '&body=' + body;
+          show('Opening your mail app to send the message…');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

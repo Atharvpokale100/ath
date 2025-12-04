@@ -1,0 +1,236 @@
+<div class="split-container">
+    <div class="split-left">
+        <img src="images/F3.jpg" alt="Left Image" />
+    </div>
+
+    <div class="split-right">
+        <img src="images/F4.jpg" alt="Right Image" />
+    </div>
+
+    <!-- Draggable center divider (JS me .split-divider use ho raha hai) -->
+    <div class="split-divider"></div>
+
+    <!-- Left button (JS me .shift-left use ho raha hai) -->
+    <button class="shift-left">⟵</button>
+
+    <!-- Right button (JS me .shift-right use ho raha hai) -->
+    <button class="shift-right">⟶</button>
+</div>
+
+<style>
+    .split-container {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        height: 400px;
+        /* Adjust as needed */
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .split-left,
+    .split-right {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 50%;
+        overflow: hidden;
+        transition: width 0.3s ease;
+    }
+
+    .split-left {
+        left: 0;
+    }
+
+    .split-right {
+        right: 0;
+    }
+
+    .split-left img,
+    .split-right img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .shift-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50px;
+        height: 50px;
+        background: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 18px;
+        cursor: pointer;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .split-container {
+            height: 300px;
+        }
+    }
+
+    .split-container {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        height: 400px;
+        /* Adjust as needed */
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .shift-left,
+    .shift-right {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.7);
+        border: none;
+        border-radius: 50%;
+        font-size: 18px;
+        cursor: pointer;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .shift-left {
+        left: 10px;
+    }
+
+    .shift-right {
+        right: 10px;
+    }
+
+    .split-left,
+    .split-right {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 50%;
+        overflow: hidden;
+    }
+
+    .split-left {
+        left: 0;
+    }
+
+    .split-right {
+        right: 0;
+    }
+
+    .split-left img,
+    .split-right img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .split-divider {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 4px;
+        height: 100%;
+        background: white;
+        cursor: ew-resize;
+        z-index: 10;
+        transform: translateX(-50%);
+        border-radius: 2px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .split-container {
+            height: 300px;
+        }
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const divider = document.querySelector('.split-divider');
+        const left = document.querySelector('.split-left');
+        const right = document.querySelector('.split-right');
+        const shiftLeftBtn = document.querySelector('.shift-left');
+        const shiftRightBtn = document.querySelector('.shift-right');
+
+        let leftWidth = 50; // Default: 50%
+
+        // Draggable divider functionality
+        divider.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            document.addEventListener('mousemove', moveDivider);
+            document.addEventListener('mouseup', () => {
+                document.removeEventListener('mousemove', moveDivider);
+            });
+        });
+
+        function moveDivider(e) {
+            const container = document.querySelector('.split-container');
+            const containerWidth = container.offsetWidth;
+            const mouseX = e.clientX - container.getBoundingClientRect().left;
+            const percentage = (mouseX / containerWidth) * 100;
+
+            left.style.width = `${percentage}%`;
+            right.style.width = `${100 - percentage}%`;
+            divider.style.left = `${percentage}%`;
+        }
+
+        const divider = document.querySelector('.split-divider');
+        const shiftLeftBtn = document.querySelector('.shift-left');
+        const shiftRightBtn = document.querySelector('.shift-right');
+
+
+        // Touch support for divider
+        divider.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            document.addEventListener('touchmove', moveDividerTouch);
+            document.addEventListener('touchend', () => {
+                document.removeEventListener('touchmove', moveDividerTouch);
+            });
+        });
+
+        function moveDividerTouch(e) {
+            const container = document.querySelector('.split-container');
+            const containerWidth = container.offsetWidth;
+            const touchX = e.touches[0].clientX - container.getBoundingClientRect().left;
+            const percentage = (touchX / containerWidth) * 100;
+
+            left.style.width = `${percentage}%`;
+            right.style.width = `${100 - percentage}%`;
+            divider.style.left = `${percentage}%`;
+        }
+
+        // Button functionality
+        shiftLeftBtn.addEventListener('click', () => {
+            leftWidth = Math.max(10, leftWidth - 10);
+            updateWidths();
+        });
+
+        shiftRightBtn.addEventListener('click', () => {
+            leftWidth = Math.min(90, leftWidth + 10);
+            updateWidths();
+        });
+
+        function updateWidths() {
+            left.style.width = `${leftWidth}%`;
+            right.style.width = `${100 - leftWidth}%`;
+            divider.style.left = `${leftWidth}%`;
+        }
+    });
+</script>

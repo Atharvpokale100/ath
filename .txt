@@ -1,0 +1,365 @@
+/* Hamburger */
+.nav-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #fff;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.nav-toggle .bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--text-main);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-toggle.open .bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.nav-toggle.open .bar:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.open .bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Mobile menu */
+.mobile-menu {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  background: #111111;
+  color: #fff;
+  border-top: 2px solid var(--accent);
+  transform: translateY(-12px);
+  opacity: 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  z-index: 25;
+}
+.mobile-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+}
+.mobile-menu-inner {
+  display: grid;
+  gap: 0.6rem;
+  padding: 1rem 1.2rem 1.2rem;
+}
+.mobile-menu a {
+  display: block;
+  padding: 0.8rem 0.6rem;
+  border-radius: 0.5rem;
+}
+.mobile-menu a:hover,
+.mobile-menu a.active {
+  color: var(--accent);
+}
+.mobile-menu a.sub {
+  padding-left: 1.2rem;
+  opacity: 0.86;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+
+  /* ====== BASE HEADER ====== */
+.site-header {
+  background: #050509;
+  border-bottom: 1px solid #222;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.container.nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.7rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* ====== LOGO ====== */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+.logo-mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  border: 2px solid #e10600;
+}
+
+.logo-text {
+  color: #f5f5f5;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ====== DESKTOP NAV LINKS ====== */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #e5e5e5;
+  text-decoration: none;
+  font-size: 0.95rem;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+/* underline hover */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #e10600;
+  transition: width 0.25s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* dropdown */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown .dropdown-menu {
+  position: absolute;
+  top: 130%;
+  left: 0;
+  min-width: 180px;
+  background: #050509;
+  border: 1px solid #333;
+  border-radius: 0.6rem;
+  padding: 0.4rem 0;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  display: none;
+  z-index: 40;
+}
+
+.nav-dropdown .dropdown-menu a {
+  display: block;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.9rem;
+}
+
+.nav-dropdown .dropdown-menu a:hover {
+  background: #111827;
+}
+
+/* show dropdown on hover (desktop only) */
+.nav-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* WhatsApp CTA */
+.nav-cta {
+  text-decoration: none;
+  background: #25d366;
+  color: #04100a;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* ====== HAMBURGER BUTTON (HIDDEN ON DESKTOP) ====== */
+.nav-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid #333;
+  background: #111;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.nav-toggle .bar {
+  width: 18px;
+  height: 2px;
+  background: #f5f5f5;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* X animation */
+.nav-toggle.open .bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.nav-toggle.open .bar:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.open .bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ====== MOBILE MENU ====== */
+.mobile-menu {
+  position: fixed;
+  top: 56px; /* height of header area */
+  left: 0;
+  right: 0;
+  background: #050509;
+  border-top: 1px solid #222;
+  transform: translateY(-12px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  z-index: 40;
+}
+
+.mobile-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-menu-inner {
+  display: grid;
+  gap: 0.4rem;
+  padding: 0.8rem 1.3rem 1.1rem;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 0.6rem 0.6rem;
+  border-radius: 0.5rem;
+  color: #f5f5f5;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.mobile-menu a:hover {
+  color: #e10600;
+  background: #0b0b12;
+}
+
+.mobile-menu a.sub {
+  padding-left: 1.4rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* ====== RESPONSIVE: MOBILE + TABLET ====== */
+@media (max-width: 992px) {
+  /* show hamburger */
+  .nav-toggle {
+    display: flex;
+  }
+
+  /* hide desktop menu + CTA */
+  .nav-links {
+    display: none;
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
+  /* header spacing */
+  .container.nav {
+    padding: 0.6rem 1rem;
+  }
+
+  /* disable desktop dropdown hover in small screens (menu is in mobile list anyway) */
+  .nav-dropdown .dropdown-menu {
+    display: none !important;
+  }
+}
+
+/* small phones tweaks */
+@media (max-width: 480px) {
+  .logo-text {
+    font-size: 0.8rem;
+  }
+}
+
+</style>
+
+<script>
+  const navToggle = document.querySelector(".nav-toggle");
+  const mobileMenu = document.querySelector(".mobile-menu");
+
+  navToggle.addEventListener("click", () => {
+    const isOpen = navToggle.classList.toggle("open");
+
+    navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+
+    if (isOpen) {
+      mobileMenu.classList.add("open");
+      mobileMenu.removeAttribute("hidden");
+    } else {
+      mobileMenu.classList.remove("open");
+      mobileMenu.setAttribute("hidden", "");
+    }
+  });
+</script>

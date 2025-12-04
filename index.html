@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Gadge Engineer and Contractor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="css/styles.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <!-- Add Slick CSS -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+
+  <!-- Add jQuery (required for Slick) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Add Slick JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+  <script src="js/includeNavbar.js" defer></script>
+  <script src="js/script.js" defer></script>
+  <script src="js/includeFooter.js" defer></script>
+</head>
+
+<body>
+  <div id="site-loader">
+    <div class="loader-ring"></div>
+  </div>
+  <div id="navbar"></div>
+
+
+  <!-- Mobile full-size image slider (below navbar; only on mobile) -->
+  <section class="mobile-fullslider" id="mobileFullSlider">
+    <div class="mfs-slide active"><img src="images/F3.jpg" alt="Mobile slide 1" /></div>
+    <div class="mfs-slide"><img src="images/F4.jpg" alt="Mobile slide 2" /></div>
+    <div class="mfs-slide"><img src="images/F3.jpg" alt="Mobile slide 3" /></div>
+    <div class="mfs-slide"><img src="images/F4.jpg" alt="Mobile slide 4" /></div>
+    <div class="mfs-slide"><img src="images/F3.jpg" alt="Mobile slide 5" /></div>
+  </section>
+  <!-- Hero -->
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text-block">
+          <br>
+          <p class="eyebrow">CIVIL • INTERIOR • ARCHITECTURE </p>
+          <style>
+            .eyebrow {
+              font-size: 18px;
+            }
+          </style>
+          <h1 class="hero-title">
+            Luxury homes with a
+            <span>modern creative</span>
+            touch.
+          </h1>
+          <p class="hero-subtitle">
+            Studio Name designs and executes refined residential and commercial spaces –
+            from 2D planning to 3D visualization and full-site execution.
+          </p>
+
+          <div class="hero-actions">
+            <a href="project.html" class="btn-primary">View Selected Projects</a>
+            <a href="gallery.html" class="btn-ghost">Open Gallery</a>
+          </div>
+
+          <div class="hero-metrics">
+            <div class="metric">
+              <span class="metric-number">150+</span>
+              <span class="metric-label">Completed Projects</span>
+            </div>
+            <div class="metric">
+              <span class="metric-number">7+</span>
+              <span class="metric-label">Years Experience</span>
+            </div>
+            <div class="metric">
+              <span class="metric-number">100%</span>
+              <span class="metric-label">Client Satisfaction</span>
+            </div>
+          </div>
+        </div>
+
+        <!--<div class="hero-image-block">
+          <div class="hero-main-image">-->
+        <!-- Replace src with your hero image -->
+        <!--<img src="images/F3.jpg" alt="Interior project" />
+          </div>
+          <div class="hero-floating-card">
+            <p class="floating-title">Featured Project</p>
+            <p class="floating-project">Skyline Residence, Pune</p>
+            <p class="floating-note">3BHK luxury remodel · 2024</p>
+          </div>
+        </div>
+      </div>-->
+
+
+        <div class="hero-image-block">
+          <div class="hero-carousel">
+            <!-- Add your 5 images here -->
+            <div><img src="images/F3.jpg" alt="Interior project 1" /></div>
+            <div><img src="images/F4.jpg" alt="Interior project 2" /></div>
+            <div><img src="images/F3.jpg" alt="Interior project 3" /></div>
+            <div><img src="images/F4.jpg" alt="Interior project 4" /></div>
+            <div><img src="images/F3.jpg" alt="Interior project 5" /></div>
+          </div>
+        </div>
+
+        <style>
+          .hero-carousel img {
+            height: 640px;
+          }
+
+          @media (max-width: 1200px) {
+            .hero-carousel img {
+              height: 560px;
+            }
+          }
+        </style>
+
+        <style>
+          #site-loader {
+            position: fixed;
+            inset: 0;
+            background: #151515;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.4s ease;
+          }
+
+          #site-loader.hide {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+          }
+
+          .loader-ring {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            border: 6px solid rgba(255, 255, 255, 0.2);
+            border-top-color: #25D366;
+            animation: spin 1s linear infinite;
+          }
+
+          @keyframes spin {
+            to {
+              transform: rotate(360deg);
+            }
+          }
+        </style>
+
+
+
+
+        <script>
+          $(document).ready(function () {
+            $('.hero-carousel').slick({
+              dots: true,       // Show navigation dots
+              arrows: true,     // Show navigation arrows
+              infinite: true,   // Infinite looping
+              speed: 500,       // Transition speed
+              slidesToShow: 1,  // Show one slide at a time
+              adaptiveHeight: true, // Adjust height based on current slide
+              autoplay: true,   // Auto-scroll
+              autoplaySpeed: 3000, // Auto-scroll interval (3 seconds)
+            });
+          });
+        </script>
+
+        <script>
+          $(document).ready(function () {
+            $('.hero-carousel').slick({
+              dots: true,
+              arrows: true,
+              infinite: true,
+              speed: 800, /* Smooth transition speed */
+              slidesToShow: 1,
+              adaptiveHeight: true,
+              autoplay: true,
+              autoplaySpeed: 3000,
+              cssEase: 'ease-in-out', /* Smooth animation */
+              mobileFirst: true, /* Prioritize mobile experience */
+              responsive: [
+                {
+                  breakpoint: 768, /* Apply settings for screens smaller than 768px */
+                  settings: {
+                    arrows: false, /* Hide arrows on mobile */
+                    dots: true,
+                  }
+                }
+              ]
+            });
+          });
+        </script>
+        <script>
+          (function () {
+            var loader = document.getElementById('site-loader');
+            function hide() { if (!loader) return; loader.classList.add('hide'); setTimeout(function () { loader && loader.parentNode && loader.parentNode.removeChild(loader); }, 500); }
+            window.addEventListener('load', hide);
+            setTimeout(hide, 6000);
+          })();
+        </script>
+        <!--images slider only in mobile view -->
+        <script>
+          (function () {
+            var fs = document.getElementById('mobileFullSlider');
+            if (!fs) return;
+            var isMobile = window.matchMedia('(max-width: 900px)').matches;
+            var slides = Array.from(fs.querySelectorAll('.mfs-slide'));
+            var i = 0;
+            function show(idx) { slides.forEach(function (s, j) { s.classList.toggle('active', j === idx); }); }
+            function tick() { if (!isMobile) return; i = (i + 1) % slides.length; show(i); }
+            show(0);
+            setInterval(tick, 3000);
+            window.addEventListener('resize', function () { isMobile = window.matchMedia('(max-width: 900px)').matches; });
+          })();
+        </script>
+
+
+
+
+    </section>
+
+    <!-- Featured services preview -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">OUR SERVICES</p>
+          <style>
+            .eyebrow {
+              font-size: 18px;
+            }
+          </style>
+          <h2 class="section-title">From planning to final styling.</h2>
+          <p class="section-subtitle">
+            A full-service studio offering everything from technical drawings to
+            on-site execution and interior styling – tailored to each project.
+          </p>
+        </div>
+        <br><br>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-thumb">
+              <img src="assets/project-1.jpg" alt="Residential" />
+            </div>
+            <h3 class="service-title">RESIDENTIAL DESIGN</h3>
+            <br>
+            <p class="service-text">Elegant home interiors tailored to lifestyle and comfort.</p>
+            <br>
+            <a href="gallery.html#residential-design" class="btn-readmore">View More</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-thumb">
+              <img src="assets/project-2.jpg" alt="Ecommerce" />
+            </div>
+            <h3 class="service-title">2D FLOOR PLAN</h3>
+            <br>
+            <p class="service-text">Visual merchandising and decor that elevates retail spaces.</p>
+            <br>
+            <a href="gallery.html#2d-floor-plan" class="btn-readmore">View More</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-thumb">
+              <img src="assets/project-3.jpg" alt="Furniture" />
+            </div>
+            <h3 class="service-title">3D ELEVATION</h3>
+            <br>
+            <p class="service-text">Bespoke pieces crafted to fit your space and aesthetic.</p>
+            <br>
+            <a href="gallery.html#3d-elevation" class="btn-readmore">View More</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-thumb">
+              <img src="assets/project-2.jpg" alt="Painting" />
+            </div>
+            <h3 class="service-title">INTERIOR</h3>
+            <br>
+            <p class="service-text">High-quality finishes that enrich textures and color palettes.</p>
+            <br>
+            <a href="gallery.html#interior" class="btn-readmore">View More</a>
+          </article>
+          <style>
+            .service-title {
+              font-family: "Times New Roman", Times, serif;
+              font-size: 24px;
+              font-weight: normal;
+              font-style: normal;
+            }
+          </style>
+
+          <article class="service-card">
+            <div class="service-thumb">
+              <img src="assets/project-3.jpg" alt="Office" />
+            </div>
+            <h3 class="service-title">OFFICE DECORATION</h3>
+            <br>
+            <p class="service-text">Productive workplaces combining ergonomics and contemporary style.</p>
+            <br>
+            <a href="gallery.html#office-decoration" class="btn-readmore">View More</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-thumb">
+              <img src="images/F4.jpg" alt="Kitchen" />
+            </div>
+            <h3 class="service-title">BUILDING RENOVATION</h3>
+            <br>
+            <p class="service-text">Functional, refined kitchens with premium finishes and storage.</p>
+            <br>
+            <a href="gallery.html#building-renovation" class="btn-readmore">View More</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-thumb">
+              <img src="images/F3.jpg" alt="Bathroom" />
+            </div>
+            <h3 class="service-title">BATHROOM REMODELING</h3>
+            <br>
+            <p class="service-text">Spa-like bathrooms with smart plumbing and durable materials.</p>
+            <br>
+            <a href="gallery.html#bathroom-remodeling" class="btn-readmore">View More</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-thumb">
+              <img src="assets/project-3.jpg" alt="Flooring" />
+            </div>
+            <h3 class="service-title">FLOORING & TILING</h3>
+            <br>
+            <p class="service-text">Premium flooring and tile solutions for lasting elegance.</p>
+            <br>
+            <a href="gallery.html#flooring-tiling" class="btn-readmore">View More</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-thumb">
+              <img src="assets/project-1.jpg" alt="Ceiling" />
+            </div>
+            <h3 class="service-title">FALSE CEILING</h3>
+            <br>
+            <p class="service-text">Acoustic and decorative ceiling designs with integrated lighting.</p>
+            <br>
+            <a href="gallery.html#false-ceiling" class="btn-readmore">View More</a>
+          </article>
+
+
+
+
+        </div>
+
+        <div class="section-link-wrap">
+          <a href="services.html" class="inline-link">View all services →</a>
+        </div>
+      </div>
+    </section>
+
+
+
+  </main>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-text">CREATIVE DESIGNS, STYLISH SPACES —</span>
+      <span class="marquee-text">CREATIVE DESIGNS, STYLISH SPACES —</span>
+      <span class="marquee-text">CREATIVE DESIGNS, STYLISH SPACES —</span>
+      <span class="marquee-text">CREATIVE DESIGNS, STYLISH SPACES —</span>
+      <span class="marquee-text">CREATIVE DESIGNS, STYLISH SPACES —</span>
+      <span class="marquee-text">CREATIVE DESIGNS, STYLISH SPACES —</span>
+    </div>
+  </div>
+
+  <div class="auto-slider">
+    <div class="slider-track">
+      <!-- Original Images -->
+      <img src="images/F3.jpg" alt="">
+      <img src="images/F4.jpg" alt="">
+      <img src="images/F3.jpg" alt="">
+      <img src="images/F4.jpg" alt="">
+      <img src="images/F3.jpg" alt="">
+
+      <!-- Duplicate Images for Infinite Effect -->
+      <img src="images/F4.jpg" alt="">
+      <img src="images/F3.jpg" alt="">
+      <img src="images/F4.jpg" alt="">
+      <img src="images/F3.jpg" alt="">
+      <img src="images/F4.jpg" alt="">
+    </div>
+  </div>
+  <style>
+    .auto-slider {
+      width: 100%;
+      overflow: hidden;
+      background: #d0cccc;
+      padding: 20px 0;
+    }
+
+    /* Slider Track */
+    .slider-track {
+      display: flex;
+      align-items: center;
+      /* track width = 10 images × (image width + margin) */
+      width: calc((360px + 24px) * 10);
+      animation: scroll-ltr 18s linear infinite;
+    }
+
+    :root {
+      --scroll-speed: 18s;
+      /* ✅ change this ONE value to control ALL sliders */
+    }
+
+    /* Bigger Images */
+    .slider-track img {
+      width: 360px;
+      /* INCREASED SIZE */
+      height: 230px;
+      object-fit: cover;
+      margin-right: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    /* LEFT → RIGHT infinite animation */
+    @keyframes scroll-ltr {
+      0% {
+        transform: translateX(-50%);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    /* Tablet sizing */
+    @media (max-width: 900px) {
+      .slider-track {
+        width: calc((320px + 20px) * 10);
+      }
+
+      .slider-track img {
+        width: 320px;
+        height: 210px;
+        margin-right: 20px;
+      }
+    }
+
+    /* Mobile sizing */
+    @media (max-width: 600px) {
+      .slider-track {
+        width: calc((280px + 16px) * 10);
+      }
+
+      .slider-track img {
+        width: 280px;
+        height: 190px;
+        margin-right: 16px;
+      }
+    }
+  </style>
+
+  <br>
+  <div class="auto-slider rtl-slider">
+    <div class="slider-track rtl-track">
+      <!-- Original Images -->
+      <img src="images/F3.jpg" alt="">
+      <img src="images/F4.jpg" alt="">
+      <img src="images/F3.jpg" alt="">
+      <img src="images/F4.jpg" alt="">
+      <img src="images/F3.jpg" alt="">
+
+      <!-- Duplicate Images (same order) -->
+      <img src="images/F3.jpg" alt="">
+      <img src="images/F4.jpg" alt="">
+      <img src="images/F3.jpg" alt="">
+      <img src="images/F4.jpg" alt="">
+      <img src="images/F3.jpg" alt="">
+    </div>
+  </div>
+  <style>
+    /* RIGHT → LEFT slider */
+    .rtl-track {
+      display: flex;
+      align-items: center;
+      width: calc((360px + 24px) * 10);
+      /* same as first slider */
+      animation: scroll-rtl 18s linear infinite;
+    }
+
+    /* RIGHT → LEFT animation */
+    @keyframes scroll-rtl {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Tablet sizing */
+    @media (max-width: 900px) {
+      .rtl-track {
+        width: calc((320px + 20px) * 10);
+      }
+    }
+
+    /* Mobile sizing */
+    @media (max-width: 600px) {
+      .rtl-track {
+        width: calc((280px + 16px) * 10);
+      }
+    }
+  </style>
+
+  <section class="section promo-section">
+    <div class="container">
+      <h2 class="promo-title">Buy Premade House Designs at a Very Low Price !!</h2>
+      <div class="promo-grid">
+        <article class="promo-card">
+          <img src="images/F4.jpg" alt="Two Storey Luxury House design" />
+          <p class="promo-caption">Two Storey Luxury House design</p>
+        </article>
+        <article class="promo-card">
+          <img src="images/F3.jpg" alt="Two Storey Luxury House design" />
+          <p class="promo-caption">Two Storey Luxury House design</p>
+        </article>
+      </div>
+      <div class="promo-cta-wrap">
+        <a class="btn-promo" href="2Dfloor.html">Click To View More »</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">WHY US</p>
+        <h2 class="section-title">What you can expect.</h2>
+        <p class="section-subtitle">Clear process, predictable delivery, and modern craftsmanship.</p>
+      </div>
+      <div class="value-grid reveal">
+        <article class="value-card">
+          <h3>Transparent Pricing</h3>
+          <p>No hidden costs, detailed estimates, and clear milestone-based billing.</p>
+        </article>
+        <article class="value-card">
+          <h3>On-time Delivery</h3>
+          <div class="value-highlights">
+            <span class="value-badge">Weekly Reports</span>
+            <span class="value-badge">Milestone Billing</span>
+            <span class="value-badge">SLA-backed Timeline</span>
+          </div>
+          <p>Process-led execution and weekly updates keep timelines predictable.</p>
+        </article>
+        <article class="value-card">
+          <h3>Quality Materials</h3>
+          <p>We source durable finishes and fixtures for long-term performance.</p>
+        </article>
+        <article class="value-card">
+          <h3>End-to-End</h3>
+          <p>From drawings to site management, we handle it all.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+</body>
+
+</html>

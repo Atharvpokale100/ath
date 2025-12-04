@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2D Floor Plans</title>
+  <link href="css/styles.css" rel="stylesheet" />
+  <script src="js/includeNavbar.js" defer></script>
+  <script src="js/includeFooter.js" defer></script>
+</head>
+
+<body>
+  <div id="navbar"></div>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">2D FLOOR PLANS</p>
+          <style>
+            .eyebrow {
+              font-size: 22px;
+            }
+          </style>
+          <h2 class="section-title">Examples</h2>
+          <p class="section-subtitle">
+            Precise layouts balancing circulation, light and function. Delivered with
+            clean dimensions, room schedules and execution‑ready drawings.
+          </p>
+          <p class="eyebrow">Plan smart. Live better.</p>
+        </div>
+
+        <div class="slider" id="floor-slider">
+          <div class="slider-viewport">
+            <div class="slider-track">
+              <div class="slide"><img src="images/F1.jpg" alt="Plan 1" /></div>
+              <div class="slide"><img src="images/F2.jpg" alt="Plan 2" /></div>
+              <div class="slide"><img src="images/F3.jpg" alt="Plan 3" /></div>
+              <div class="slide"><img src="images/F4.jpg" alt="Plan 4" /></div>
+              <div class="slide"><img src="images/F5.jpg" alt="Plan 5" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="floor-cards">
+          <article class="floor-card"><img src="images/F4.jpg" alt="Plan A" /></article>
+          <article class="floor-card"><img src="images/F3.jpg" alt="Plan B" /></article>
+          <article class="floor-card"><img src="images/F4.jpg" alt="Plan C" /></article>
+          <article class="floor-card"><img src="images/F3.jpg" alt="Plan D" /></article>
+          <article class="floor-card"><img src="images/F4.jpg" alt="Plan E" /></article>
+          <article class="floor-card"><img src="images/F3.jpg" alt="Plan F" /></article>
+          <article class="floor-card"><img src="images/F4.jpg" alt="Plan G" /></article>
+          <article class="floor-card"><img src="images/F3.jpg" alt="Plan H" /></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const track = document.querySelector('#floor-slider .slider-track');
+      const slides = Array.from(track.children);
+      let index = 0;
+
+      function update() {
+        const width = track.parentElement.offsetWidth;
+        track.style.transform = `translateX(${-index * width}px)`;
+      }
+
+      function next() {
+        index = (index + 1) % slides.length;
+        update();
+      }
+
+      window.addEventListener('resize', update);
+      update();
+      setInterval(next, 3000);
+
+      // card behavior handled by js/script.js
+    });
+  </script>
+  <script src="js/script.js" defer></script>
+  <div id="footer"></div>
+</body>
+
+</html>
