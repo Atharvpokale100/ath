@@ -1,13 +1,11 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-col">
-<p class="footer-logo">
-  <a href="index.html" class="footer-logo-link">
-    <span class="gadge-red">GADGE</span> Engineer's and Contractor
-  </a>
-</p>
-
-      <p class="footer-text">Designing and executing refined civil and interior projects with modern craftsmanship.</p>
+      <p class="footer-logo">
+        <a href="index.html" class="footer-logo-link">
+          <img src="images/logo.png" alt="Gadge Engineer and Contractor" class="footer-logo-img" />
+        </a>
+      </p>
     </div>
     <div class="footer-col">
       <p class="footer-heading">Contact</p>
@@ -59,7 +57,7 @@
 .footer-col {
   display: flex;
   flex-direction: column;
-  gap: 12px;                             /* equal spacing inside each column */
+  gap: 12px;                           
 }
 
 /* ========== LOGO TEXT ========== */
@@ -231,6 +229,29 @@
 
 .footer-logo-link:hover .gadge-red {
   color: #ff6a00;   /* lighter red on hover */
+}
+
+
+
+
+/* Responsive logo sizing across breakpoints */
+
+/* Footer logo image sizing */
+.footer-logo-img {
+  height: 140px;
+  width: auto;
+}
+
+@media (max-width: 900px) {
+  .footer-logo-img {
+    height: 140px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-logo-img {
+    height: 145px;
+  }
 }
 
 </style>

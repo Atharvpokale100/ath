@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="css/styles.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
+    rel="stylesheet"/>
   <!-- Add Slick CSS -->
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
@@ -23,23 +23,121 @@
   <script src="js/includeNavbar.js" defer></script>
   <script src="js/script.js" defer></script>
   <script src="js/includeFooter.js" defer></script>
+  <!-- Lottie Web Component for page loading animation -->
+  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
 </head>
 
 <body>
   <div id="site-loader">
-    <div class="loader-ring"></div>
+    <dotlottie-wc src="https://lottie.host/1439753e-8018-4b60-bbb5-576508567e3d/XRDsH9pIMg.lottie" style="width: 300px;height: 300px" autoplay loop></dotlottie-wc>
   </div>
   <div id="navbar"></div>
 
 
   <!-- Mobile full-size image slider (below navbar; only on mobile) -->
-  <section class="mobile-fullslider" id="mobileFullSlider">
-    <div class="mfs-slide active"><img src="images/F3.jpg" alt="Mobile slide 1" /></div>
-    <div class="mfs-slide"><img src="images/F4.jpg" alt="Mobile slide 2" /></div>
-    <div class="mfs-slide"><img src="images/F3.jpg" alt="Mobile slide 3" /></div>
-    <div class="mfs-slide"><img src="images/F4.jpg" alt="Mobile slide 4" /></div>
-    <div class="mfs-slide"><img src="images/F3.jpg" alt="Mobile slide 5" /></div>
-  </section>
+  <!--<section class="mobile-fullslider" id="mobileFullSlider">
+    <div class="mfs-slide active"><img src="images/image.png" alt="Mobile slide 1" /></div>
+    <div class="mfs-slide"><img src="images/image2.png" alt="Mobile slide 2" /></div>
+    <div class="mfs-slide"><img src="images/images6.png" alt="Mobile slide 3" /></div>
+    <div class="mfs-slide"><img src="images/images8.png" alt="Mobile slide 4" /></div>
+    <div class="mfs-slide"><img src="images/images7.jpg" alt="Mobile slide 5" /></div>
+  </section>-->
+
+
+<style>
+    .slider-wrapper {
+        width: 100vw;
+        overflow: hidden;
+    }
+
+    .slider {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+    }
+
+    .slider::-webkit-scrollbar {
+        display: none;
+    }
+
+    .slide {
+        min-width: 100vw;
+        height: 60vh;  
+        scroll-snap-align: center;
+        flex-shrink: 0;
+        position: relative;
+    }
+
+    .slide img {
+        width: 100%;
+        height: 100%;    
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+
+    @media (min-width: 640px) {
+        .slider-wrapper {
+            display: none;
+        }
+    }
+</style>
+
+</head>
+<body>
+
+<div class="slider-wrapper">
+    <div class="slider" id="autoSlider">
+
+        <div class="slide">
+            <img src="images/image.png">
+        </div>
+
+        <div class="slide">
+            <img src="images/slide2.png">
+        </div>
+
+        <div class="slide">
+            <img src="images/images7.jpg">
+        </div>
+
+        <div class="slide">
+            <img src="images/image2.png">
+        </div>
+
+
+        <div class="slide">
+            <img src="images/inte3.png">
+        </div>
+
+        <div class="slide">
+            <img src="images/resident.png">
+        </div>
+
+
+
+    </div>
+</div>
+
+<script>
+    const slider = document.getElementById("autoSlider");
+    let index = 0;
+
+    setInterval(() => {
+        const slides = slider.children;
+        index = (index + 1) % slides.length;
+
+        slider.scrollTo({
+            left: slides[index].offsetLeft,
+            behavior: "smooth"
+        });
+    }, 3000);
+</script>
+
+</body>
+</html>
+  
   <!-- Hero -->
   <main id="main">
     <section class="hero">
@@ -100,25 +198,15 @@
         <div class="hero-image-block">
           <div class="hero-carousel">
             <!-- Add your 5 images here -->
-            <div><img src="images/F3.jpg" alt="Interior project 1" /></div>
-            <div><img src="images/F4.jpg" alt="Interior project 2" /></div>
-            <div><img src="images/F3.jpg" alt="Interior project 3" /></div>
-            <div><img src="images/F4.jpg" alt="Interior project 4" /></div>
-            <div><img src="images/F3.jpg" alt="Interior project 5" /></div>
+            <div><img src="images/image.png" alt="Interior project 1" /></div>
+            <div><img src="images/image2.png" alt="Interior project 2" /></div>
+            <div><img src="images/images7.jpg" alt="Interior project 3" /></div>
+            <div><img src="images/images8.png" alt="Interior project 4" /></div>
+            <div><img src="images/images6.png" alt="Interior project 5" /></div>
           </div>
         </div>
 
-        <style>
-          .hero-carousel img {
-            height: 640px;
-          }
-
-          @media (max-width: 1200px) {
-            .hero-carousel img {
-              height: 560px;
-            }
-          }
-        </style>
+        
 
         <style>
           #site-loader {
@@ -212,12 +300,28 @@
             if (!fs) return;
             var isMobile = window.matchMedia('(max-width: 900px)').matches;
             var slides = Array.from(fs.querySelectorAll('.mfs-slide'));
+            if (!slides.length) return;
+
+            // Build a smooth sliding track
+            var track = document.createElement('div');
+            track.className = 'mfs-track';
+            slides.forEach(function (s) { track.appendChild(s); });
+            fs.appendChild(track);
+
             var i = 0;
-            function show(idx) { slides.forEach(function (s, j) { s.classList.toggle('active', j === idx); }); }
-            function tick() { if (!isMobile) return; i = (i + 1) % slides.length; show(i); }
-            show(0);
-            setInterval(tick, 3000);
-            window.addEventListener('resize', function () { isMobile = window.matchMedia('(max-width: 900px)').matches; });
+            function go(idx) {
+              i = (idx + slides.length) % slides.length;
+              track.style.transform = 'translateX(' + (-i * 100) + '%)';
+            }
+            function tick() {
+              if (!isMobile) return;
+              go(i + 1);
+            }
+            go(0);
+            var timer = setInterval(tick, 3000);
+            window.addEventListener('resize', function () {
+              isMobile = window.matchMedia('(max-width: 900px)').matches;
+            });
           })();
         </script>
 
@@ -247,7 +351,7 @@
         <div class="services-grid">
           <article class="service-card">
             <div class="service-thumb">
-              <img src="assets/project-1.jpg" alt="Residential" />
+              <img src="images/resident.png" alt="Residential" />
             </div>
             <h3 class="service-title">RESIDENTIAL DESIGN</h3>
             <br>
@@ -258,7 +362,7 @@
 
           <article class="service-card">
             <div class="service-thumb">
-              <img src="assets/project-2.jpg" alt="Ecommerce" />
+              <img src="images/2D.png" alt="Ecommerce" />
             </div>
             <h3 class="service-title">2D FLOOR PLAN</h3>
             <br>
@@ -269,7 +373,7 @@
 
           <article class="service-card">
             <div class="service-thumb">
-              <img src="assets/project-3.jpg" alt="Furniture" />
+              <img src="images/3D.png" alt="3D ELEVATION" />
             </div>
             <h3 class="service-title">3D ELEVATION</h3>
             <br>
@@ -280,7 +384,7 @@
 
           <article class="service-card">
             <div class="service-thumb">
-              <img src="assets/project-2.jpg" alt="Painting" />
+              <img src="images/interior.png" alt="INTERIOR" />
             </div>
             <h3 class="service-title">INTERIOR</h3>
             <br>
@@ -299,7 +403,7 @@
 
           <article class="service-card">
             <div class="service-thumb">
-              <img src="assets/project-3.jpg" alt="Office" />
+              <img src="images/office.png" alt="Office" />
             </div>
             <h3 class="service-title">OFFICE DECORATION</h3>
             <br>
@@ -310,7 +414,7 @@
 
           <article class="service-card">
             <div class="service-thumb">
-              <img src="images/F4.jpg" alt="Kitchen" />
+              <img src="images/buil-renovation.png" alt="BUILDING RENOVATION" />
             </div>
             <h3 class="service-title">BUILDING RENOVATION</h3>
             <br>
@@ -321,7 +425,7 @@
 
           <article class="service-card">
             <div class="service-thumb">
-              <img src="images/F3.jpg" alt="Bathroom" />
+              <img src="images/BATHROOMREMODELIN.png" alt="BATHROOM REMODELING" />
             </div>
             <h3 class="service-title">BATHROOM REMODELING</h3>
             <br>
@@ -332,7 +436,7 @@
 
           <article class="service-card">
             <div class="service-thumb">
-              <img src="assets/project-3.jpg" alt="Flooring" />
+              <img src="images/floor-tiling.png" alt="Flooring" />
             </div>
             <h3 class="service-title">FLOORING & TILING</h3>
             <br>
@@ -343,7 +447,7 @@
 
           <article class="service-card">
             <div class="service-thumb">
-              <img src="assets/project-1.jpg" alt="Ceiling" />
+              <img src="images/celing.png" alt="Ceiling" />
             </div>
             <h3 class="service-title">FALSE CEILING</h3>
             <br>

@@ -47,8 +47,20 @@ document.addEventListener('DOMContentLoaded', function() {
           });
         }
         if (menu) {
+          // Close when clicking any link
           menu.addEventListener('click', function(e){
             if (e.target.classList && e.target.matches('a')) setOpen(false);
+          });
+          // Close when clicking outside the menu panel
+          document.addEventListener('click', function(e){
+            var inner = mount.querySelector('.mobile-menu-inner');
+            var isOpen = toggle && toggle.classList.contains('open');
+            if (!isOpen) return;
+            var clickedToggle = toggle && toggle.contains(e.target);
+            var clickedInsideMenu = inner && inner.contains(e.target);
+            if (!clickedToggle && !clickedInsideMenu) {
+              setOpen(false);
+            }
           });
         }
         window.addEventListener('resize', function(){
